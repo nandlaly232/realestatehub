@@ -2,30 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === GLOBAL STYLES === */
 @layer base {
   body {
-    @apply bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 text-gray-800 font-sans min-h-screen;
+    @apply bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 text-gray-800 dark:text-gray-100 min-h-screen;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600;
-  }
+  h1, h2, h3 { @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600 dark:from-indigo-400 dark:to-pink-400; }
 }
 
 @layer components {
-  .btn-primary {
-    @apply bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300;
-  }
-  .btn-success {
-    @apply bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300;
-  }
-  .btn-danger {
-    @apply bg-gradient-to-r from-red-500 to-rose-600 text-white font-bold px-4 py-2 rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition-all duration-200;
-  }
-  .input-field {
-    @apply w-full px-5 py-3.5 border border-gray-300 rounded-xl focus:ring-4 focus:ring-indigo-300 focus:border-indigo-500 transition-all duration-300 shadow-sm text-lg;
-  }
-  .card {
-    @apply bg-white/80 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-white/20;
-  }
+  .btn-primary { @apply bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300; }
+  .btn-success { @apply bg-gradient-to-r from-green-500 to-emerald-600 dark:from-green-400 dark:to-emerald-500 text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300; }
+  .btn-danger { @apply bg-gradient-to-r from-red-500 to-rose-600 dark:from-red-400 dark:to-rose-500 text-white font-bold px-4 py-2 rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition-all duration-200; }
+  .input-field { @apply w-full px-5 py-3.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-4 focus:ring-indigo-300 dark:focus:ring-indigo-500 focus:border-transparent transition-all duration-300 shadow-sm text-lg bg-white dark:bg-gray-800; }
+  .card { @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-white/20 dark:border-gray-700/20; }
 }

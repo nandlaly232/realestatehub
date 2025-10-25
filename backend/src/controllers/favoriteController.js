@@ -1,30 +1,10 @@
-const { getFavorites, addFavorite, removeFavorite } = require('../models/favoriteModel');
+const { getFavorites, toggleFavorite } = require('../models/favoriteModel');
 
-const getUserFavorites = async (req, res) => {
-  try {
-    const favorites = await getFavorites(req.user.id);
-    res.json(favorites);
-  } catch (err) {
-    res.status(500).json({ message: 'Error fetching favorites', error: err });
-  }
+const getUserFavorites = async (req, res) => res.json(await getFavorites(req.user.id));
+
+const toggle = async (req, res) => {
+  const { added } = await toggleFavorite(req.user.id, req.params.id);
+  res.json({ added });
 };
 
-const addToFavorites = async (req, res) => {
-  try {
-    await addFavorite(req.user.id, req.params.propertyId);
-    res.status(201).json({ message: 'Added to favorites' });
-  } catch (err) {
-    res.status(500).json({ message: 'Error adding favorite', error: err });
-  }
-};
-
-const removeFromFavorites = async (req, res) => {
-  try {
-    await removeFavorite(req.user.id, req.params.propertyId);
-    res.status(204).send();
-  } catch (err) {
-    res.status(500).json({ message: 'Error removing favorite', error: err });
-  }
-};
-
-module.exports = { getUserFavorites, addToFavorites, removeFromFavorites };
+module.exports = { getUserFavorites, toggle };
